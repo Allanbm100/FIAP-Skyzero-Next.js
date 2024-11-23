@@ -91,6 +91,10 @@ export default function Login() {
                         </button>
                     </div>
                 </form>
+                <div className="flex flex-col items-center sm:items-start">
+                    <p className="text-sm">Não tem uma conta SkyZero?</p>
+                    <Link href={"/cadastro"} className="font-bold text-[#079b11]">Crie seu cadastro!</Link>
+                </div>
             </main>
         </main>
     )
