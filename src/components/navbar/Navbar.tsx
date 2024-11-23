@@ -16,6 +16,10 @@ export const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     const navLinks = idUsuario
         ? [
               { href: "/#integrantes", label: "Integrantes" },
@@ -77,6 +81,7 @@ export const Navbar = () => {
                     <div className="absolute inset-x-0 top-20 bg-white shadow-lg py-8 sm:py-4 flex flex-col sm:flex-row gap-10 sm:gap-8 items-center justify-center lg:hidden z-50">
                         <Link
                             href={idUsuario ? "" : "/login"}
+                            onClick={closeMenu}
                             className={`flex items-center gap-2 justify-center w-36 sm:w-1/6 h-12 sm:h-10 border-2 rounded-lg 
                                 ${idUsuario
                                     ? "border-[#079b11] text-[#079b11]"
