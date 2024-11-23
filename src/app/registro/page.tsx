@@ -93,6 +93,7 @@ export default function Registros() {
                                     <button type="submit" onClick={() => handleDelete(registro.id)}>
                                         <FaTrashAlt size={30} color="079b11" />
                                     </button>
+
                                 </div>
                             </li>
                         ))}

@@ -1,13 +1,13 @@
-import { FaCalculator } from "react-icons/fa";
-import { IoIosSave } from "react-icons/io";
-import { IoPieChartSharp } from "react-icons/io5";
-import { FaGithub } from "react-icons/fa6";
 import backgroundImage from "@/assets/images/section1-wpp.jpg"
 import fotoAllan from "../assets/images/allan.png";
 import fotoCaio from "../assets/images/caio.png";
 import fotoLevi from "../assets/images/levi.png";
 import Image from "next/image"
 import Link from "next/link";
+import { FaCalculator } from "react-icons/fa";
+import { IoIosSave } from "react-icons/io";
+import { IoPieChartSharp } from "react-icons/io5";
+import { FaGithub } from "react-icons/fa6";
 
 export default function Home() {
   return (
