@@ -1,7 +1,7 @@
-import backgroundImage from "@/assets/images/section1-wpp.jpg"
-import fotoAllan from "../assets/images/allan.png";
-import fotoCaio from "../assets/images/caio.png";
-import fotoLevi from "../assets/images/levi.png";
+import backgroundImage from "../assets/section1-wpp.jpg"
+import fotoAllan from "../assets/allan.png";
+import fotoCaio from "../assets/caio.png";
+import fotoLevi from "../assets/levi.png";
 import Image from "next/image"
 import Link from "next/link";
 import { FaCalculator } from "react-icons/fa";
