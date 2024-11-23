@@ -1,3 +1,6 @@
+import backgroundImage from "@/assets/images/section1-wpp.jpg"
+import Image from "next/image"
+
 export default function Home() {
   return (
     <main>
