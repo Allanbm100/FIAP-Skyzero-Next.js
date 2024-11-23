@@ -28,6 +28,34 @@ export default function Calculadora() {
     const handleTipoAviaoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTipoAviao(event.target.value as "PassengerAirplane" | "CargoAirplane");
     };
+    async function atualizarEmissao(registryId: any) {
+        const url = `http://localhost:8080/registro/${registryId}/calcular`;
+        const dados = {
+            tipoAviao: tipoAviao,
+            distancia: distance
+        };
+
+        try {
+            const resposta = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            });
+
+            if (!resposta.ok) {
+                throw new Error(`Erro: ${resposta.statusText}`);
+            }
+
+            setEmission(await resposta.json());
+
+            setValid(true);
+        } catch (erro) {
+            console.error("Erro ao atualizar emissão:", erro);
+        }
+    }
+
     return (
         <main>
 
