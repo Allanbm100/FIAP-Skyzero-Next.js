@@ -15,7 +15,6 @@ export const Navbar = () => {
           { href: "/registros", label: "Registros" },
       ]
     : [{ href: "/#integrantes", label: "Integrantes" }];
-    
     return (
 <nav className="w-full h-20 border-b-4 border-gray-200">
             <div className="w-full h-full max-w-7xfull m-auto flex flex-wrap justify-between content-center px-8 sm:px-12 lg:px-12">
