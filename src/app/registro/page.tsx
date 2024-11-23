@@ -89,6 +89,11 @@ export default function Registros() {
                                     <h1><strong>Data do Registro:</strong></h1>
                                     <p>{formatDate(registro.dataRegistro)}</p>
                                 </div>
+                                <div className="sm:w-1/2 flex justify-center">
+                                    <button type="submit" onClick={() => handleDelete(registro.id)}>
+                                        <FaTrashAlt size={30} color="079b11" />
+                                    </button>
+                                </div>
                             </li>
                         ))}
                     </ul>
