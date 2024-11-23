@@ -2,12 +2,12 @@
 
 import { PiKeyReturnFill } from "react-icons/pi";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function Cadastro() {
 
-    
+
     const router = useRouter();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -20,7 +20,7 @@ export default function Cadastro() {
     const handleCnpjChange = (event: any) => setCnpj(event.target.value);
     const handlePasswordChange = (event: any) => setPassword(event.target.value);
     const handleConfirmPasswordChange = (event: any) => setConfirmPassword(event.target.value);
-    
+
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
@@ -50,6 +50,44 @@ export default function Cadastro() {
         if (password !== confirmPassword) {
             alert("As senhas não coincidem. Por favor, verifique.");
             return;
+        }
+
+        const usuarioData = {
+            nomeEmpresa: name,
+            email: email,
+            cnpj: cnpj,
+            login: {
+                cnpj: cnpj,
+                senha: password,
+            }
+        };
+
+        try {
+            const response = await fetch("http://localhost:8080/usuario", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(usuarioData),
+            });
+
+            if (response.ok) {
+                const data = await response.text();
+                alert("Usuário cadastrado com sucesso!");
+
+                setName("");
+                setEmail("");
+                setCnpj("");
+                setPassword("");
+                setConfirmPassword("");
+
+                router.push("/login");
+            } else {
+                const errorData = await response.text();
+                alert(`Erro ao cadastrar: ${errorData}`);
+            }
+        } catch (errorData) {
+            alert(`Erro ao cadastrar: ${errorData}`);
         }
     }
 
