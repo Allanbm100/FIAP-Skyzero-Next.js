@@ -7,6 +7,52 @@ import Link from "next/link";
 
 export default function Cadastro() {
 
+    
+    const router = useRouter();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [cnpj, setCnpj] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const handleNameChange = (event: any) => setName(event.target.value);
+    const handleEmailChange = (event: any) => setEmail(event.target.value);
+    const handleCnpjChange = (event: any) => setCnpj(event.target.value);
+    const handlePasswordChange = (event: any) => setPassword(event.target.value);
+    const handleConfirmPasswordChange = (event: any) => setConfirmPassword(event.target.value);
+    
+
+    const handleSubmit = async (event: any) => {
+        event.preventDefault();
+
+        if (name.trim() === "") {
+            alert("Por favor, insira um nome válido.");
+            return;
+        }
+
+        const emailRegex = /^[\w-.]+@[\w-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(email)) {
+            alert("Por favor, insira um e-mail válido.");
+            return;
+        }
+
+        const cnpjRegex = /^\d{14}$/;
+        if (!cnpjRegex.test(cnpj.replace(/\D/g, ""))) {
+            alert("Por favor, insira um CNPJ válido.");
+            return;
+        }
+
+        if (password.length < 8) {
+            alert("A senha deve ter pelo menos 8 caracteres.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("As senhas não coincidem. Por favor, verifique.");
+            return;
+        }
+    }
+
     return (
         <main className="pt-10 pb-20 sm:py-20 px-8 sm:px-24 md:px-40 lg:px-60 xl:px-96">
             <Link href={"/"} className="flex w-fit mb-12">
