@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUserContext } from "@/context/UserContext";
 
-
 export default function Login() {
     const router = useRouter();
 
@@ -45,7 +44,7 @@ export default function Login() {
                 setIdUsuario(data.id_usuario);
                 alert("Login realizado com sucesso!");
                 router.push("/registros");
-
+                
                 setCnpj("");
                 setPassword("");
 
@@ -61,7 +60,6 @@ export default function Login() {
     }
 
     return (
-        <main>
             <main className="pt-10 pb-20 sm:py-20 px-8 sm:px-24 md:px-40 lg:px-60 xl:px-96">
                 <Link href={"/"} className="flex w-fit mb-12">
                     <PiKeyReturnFill size={40} color="079b11" />
@@ -96,6 +94,5 @@ export default function Login() {
                     <Link href={"/cadastro"} className="font-bold text-[#079b11]">Crie seu cadastro!</Link>
                 </div>
             </main>
-        </main>
     )
 }
