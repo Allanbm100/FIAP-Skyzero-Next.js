@@ -23,10 +23,46 @@ export default function Login() {
         setPassword(event.target.value);
     }
 
+    const handleSubmit = async (event: any) => {
+        event.preventDefault();
+
+        const loginData = {
+            cnpj: cnpj,
+            senha: password,
+        };
+
+        try {
+            const response = await fetch("http://localhost:8080/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(loginData),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setIdUsuario(data.id_usuario);
+                alert("Login realizado com sucesso!");
+                router.push("/registros");
+
+                setCnpj("");
+                setPassword("");
+
+                router.push
+            } else {
+                const errorData = await response.text();
+                alert(`Erro ao realizar login: ${errorData}`);
+            }
+        } catch (error) {
+            console.error("Erro ao enviar os dados:", error);
+            alert("Erro ao conectar ao servidor. Tente novamente mais tarde.");
+        }
+    }
 
     return (
-            <main>
+        <main>
 
-            </main>
+        </main>
     )
 }
